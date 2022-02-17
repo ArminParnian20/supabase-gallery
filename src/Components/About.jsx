@@ -2,7 +2,6 @@ import React from 'react';
 import { Fragment } from 'react/cjs/react.production.min';
 import { useState,useEffect } from 'react';
 import { supabase } from './../client';
-import { Camera, CameraResultType } from '@capacitor/camera';
 import toast, { Toaster } from 'react-hot-toast';
 
 const About = () => {
@@ -77,7 +76,7 @@ await supabase
            <div className="about-box">
              <input type="text" placeholder='title' value={title} onChange={e=>setpost({...post,title:e.target.value})} />
              <input type="text" placeholder='Context' value={context} onChange={e=>setpost({...post,context:e.target.value})} />
-               <input type="file" value={name} onChange={e => setimageurl(e.target.files[0]) } />
+               <input type="file" onChange={e => setimageurl(e.target.files[0]) } />
                 <button onClick={createPost}>Create Post</button> 
                 {
                     posts.map(post=>(
