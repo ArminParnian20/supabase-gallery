@@ -64,13 +64,14 @@ await supabase
   .storage
   .from('posts')
   .remove([`${n}`])
+  console.log(error,n);
   fetchPosts()
   toast.success('post deleted!!!');
     }
     return (<Fragment>
         <div className='about'>
         <Toaster
-  position="top-right"
+  position="top-left"
   reverseOrder={false}
 />
            <div className="about-box">
@@ -82,7 +83,6 @@ await supabase
                     posts.map(post=>(
                         <div key={post.id} className="text-box">
                           <div>
-
                                 <h3>{post.title}</h3>
                                 <p>{post.context}</p>
                                 <button onClick={()=>deletpost(post.id,post.name)}>delete</button>
@@ -91,8 +91,6 @@ await supabase
                         </div>
                     ))
                 }  
-            
-
            </div>
         </div>
     </Fragment>);
