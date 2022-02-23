@@ -1,14 +1,19 @@
-import React from 'react';
-import { Fragment } from 'react/cjs/react.production.min';
+import React, { useState } from 'react';
 import './App.css';
 import './fontawesome/css/all.css'
 import Header from './Components/Header';
+import simpleContext from './context';
 
 const App = () => {
+    const[getactive,setactive]=useState(false);
+    
     return ( 
-        <Fragment>
+        <simpleContext.Provider
+        value={{getactive:getactive,setactive:setactive}}>
             <Header/>
-        </Fragment>
+
+        </simpleContext.Provider>
+
      );
 }
 export default App;
